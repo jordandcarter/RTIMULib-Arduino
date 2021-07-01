@@ -4,6 +4,10 @@ RTIMULib-Arduino is the simplest way to connect a 9-dof or 10-dof IMU to an Ardu
 
 ## Please note that this library is no longer supported.
 
+## Changes:
+
+* Added support for MPU-9255 only with I2c interface based on the codes from [Nick-Currawong/RTIMULib2](https://github.com/Nick-Currawong/RTIMULib2/tree/master/RTHost/RTHostIMU)
+
 ## Features
 
 RTIMULib-Arduino currently supports the following IMUs via I2C:
@@ -12,6 +16,7 @@ RTIMULib-Arduino currently supports the following IMUs via I2C:
 * InvenSense MPU-6050 plus HMC5883 magnetometer on MPU-6050's aux bus (handled by the MPU-9150 driver).
 * InvenSense MPU-6050 gyros + acclerometers. Treated as MPU-9150 without magnetometers.
 * InvenSense MPU-9250 single chip IMU
+* InvenSense MPU-9255 single chip IMU (But only I2c interface is supported here)
 * STM LSM9DS0 single chip IMU
 * L3GD20H + LSM303D (optionally with the LPS25H) as used on the Pololu AltIMU-10 v4.
 * L3GD20 + LSM303DLHC as used on the Adafruit 9-dof (older version with GD20 gyro) IMU. 
@@ -26,10 +31,12 @@ Pressure/temperature sensing is supported for the following pressure sensors:
 
 Select the IMU in use by editing libraries/RTIMULib/RTIMULibDefs.h and uncommenting one of the supported IMUs like this:
 
-	#define MPU9150_68                      // MPU9150 at address 0x68
+	//#define MPU9150_68                      // MPU9150 at address 0x68
 	//#define MPU9150_69                      // MPU9150 at address 0x69
 	//#define MPU9250_68                      // MPU9250 at address 0x68
 	//#define MPU9250_69                      // MPU9250 at address 0x69
+	#define MPU9255_68                        // MPU9255 at address 0x68
+	//#define MPU9255_69                      // MPU9255 at address 0x69
 	//#define LSM9DS0_6a                      // LSM9DS0 at address 0x6a
 	//#define LSM9DS0_6b                      // LSM9DS0 at address 0x6b
 	//#define GD20HM303D_6a                   // GD20H + M303D at address 0x6a
@@ -55,7 +62,7 @@ To enable a pressure sensor, uncomment one of the following lines in libraries/R
 The actual RTIMULib and support libraries are in the library directory. The other top level directories contain example sketches.
 
 *** Important note ***
-It is essential to calibrate the magnetometers (except for the BNO055 IMU) or else very poor results will obtained, especially with the MPU-9150 and MPU-9250. If odd results are being obtained, suspect the magnetometer calibration! 
+It is essential to calibrate the magnetometers (except for the BNO055 IMU) or else very poor results will obtained, especially with the MPU-9150, MPU-9250 and MPU-9255. If odd results are being obtained, suspect the magnetometer calibration! 
 
 ### Special notes for the BNO055
 

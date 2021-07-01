@@ -62,6 +62,20 @@ public:
     int m_MPU9250AccelFsr;                                  // FSR code for the accel
 #endif
 
+
+#if defined(MPU9255_68) || defined(MPU9255_69)
+    //  MPU9255
+
+    int m_MPU9255GyroAccelSampleRate;                       // the sample rate (samples per second) for gyro and accel
+    int m_MPU9255CompassSampleRate;                         // same for the compass
+    int m_MPU9255GyroLpf;                                   // low pass filter code for the gyro
+    int m_MPU9255AccelLpf;                                  // low pass filter code for the accel
+    int m_MPU9255GyroFsr;                                   // FSR code for the gyro
+    int m_MPU9255AccelFsr;                                  // FSR code for the accel
+#endif
+
+
+
 #if defined(LSM9DS0_6a) || defined(LSM9DS0_6b)
     //  LSM9DS0
 

@@ -31,6 +31,10 @@
 #include "RTIMUMPU9250.h"
 #endif
 
+#if defined(MPU9255_68) || defined(MPU9255_69)
+#include "RTIMUMPU9255.h"
+#endif
+
 #if defined(LSM9DS0_6a) || defined(LSM9DS0_6b)
 #include "RTIMULSM9DS0.h"
 #endif
@@ -119,6 +123,31 @@ RTIMUSettings::RTIMUSettings()
     m_MPU9250AccelFsr = MPU9250_ACCELFSR_8;
     m_I2CSlaveAddress = MPU9250_ADDRESS1;
 #endif
+
+#ifdef MPU9255_68
+    //  MPU9250 defaults
+
+    m_MPU9255GyroAccelSampleRate = 80;
+    m_MPU9255CompassSampleRate = 40;
+    m_MPU9255GyroLpf = MPU9255_GYRO_LPF_41;
+    m_MPU9255AccelLpf = MPU9255_ACCEL_LPF_41;
+    m_MPU9255GyroFsr = MPU9255_GYROFSR_1000;
+    m_MPU9255AccelFsr = MPU9255_ACCELFSR_8;
+    m_I2CSlaveAddress = MPU9255_ADDRESS0;
+#endif
+
+#ifdef MPU9255_69
+    //  MPU9250 defaults
+
+    m_MPU9255GyroAccelSampleRate = 80;
+    m_MPU9255CompassSampleRate = 40;
+    m_MPU9255GyroLpf = MPU9255_GYRO_LPF_41;
+    m_MPU9255AccelLpf = MPU9255_ACCEL_LPF_41;
+    m_MPU9255GyroFsr = MPU9255_GYROFSR_1000;
+    m_MPU9255AccelFsr = MPU9255_ACCELFSR_8;
+    m_I2CSlaveAddress = MPU9255_ADDRESS1;
+#endif
+
 
 #ifdef LSM9DS0_6a
     //  LSM9DS0 defaults
