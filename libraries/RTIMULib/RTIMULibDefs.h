@@ -29,10 +29,12 @@
 
 //  IMU enable defs - only one should be enabled, the rest commented out
 
-#define MPU9150_68                      // MPU9150 at address 0x68
+// #define MPU9150_68                      // MPU9150 at address 0x68
 //#define MPU9150_69                      // MPU9150 at address 0x69
 //#define MPU9250_68                      // MPU9250 at address 0x68
 //#define MPU9250_69                      // MPU9250 at address 0x69
+#define MPU9255_68                      // MPU9255 at address 0x68
+//#define MPU9255_69                      // MPU9255 at address 0x69
 //#define LSM9DS0_6a                      // LSM9DS0 at address 0x6a
 //#define LSM9DS0_6b                      // LSM9DS0 at address 0x6b
 //#define GD20HM303D_6a                   // GD20H + M303D at address 0x6a
@@ -51,6 +53,7 @@
 #define RTIMU_TYPE_GD20HM303D               3                   // STM L3GD20H/LSM303D (Pololu Altimu)
 #define RTIMU_TYPE_GD20M303DLHC             4                   // STM L3GD20/LSM303DHLC (old Adafruit IMU)
 #define RTIMU_TYPE_MPU9250                  5                   // InvenSense MPU9250
+#define RTIMU_TYPE_MPU9255                  8                   // InvenSense MPU9255
 #define RTIMU_TYPE_GD20HM303DLHC            6                   // STM L3GD20H/LSM303DHLC (new Adafruit IMU)
 #define RTIMU_TYPE_BNO055                   7                   // BNO055
 
